@@ -30,7 +30,7 @@ def check_winnings(columns, lines, bet, values):
             symbol_to_check = column[line]
             if symbol != symbol_to_check:
                 break
-        else:
+        else: #for문이 정상적으로 모두 실행되었을 때 실행
             winnings += values[symbol] * bet
             winning_lines.append(line+1)
     return winnings, winning_lines
@@ -129,5 +129,6 @@ def main():
 
     print(f"You left with ${balance}")
 
+#테스트용 주석
 if __name__ == "__main__":
     main()
