@@ -1,10 +1,9 @@
 print("hello world!")
 
-i=0
+numbers = [1,2,3]
 
-while(i<10):
-    print("hello world!")
-    i += 1
-
-for i in range(10):
-    print(f"hello world! {i}")
+def packing(*numbers):
+    for number in numbers:
+        print(number)
+        print()
+packing(*numbers)
