@@ -1,9 +1,10 @@
-print("hello world!")
+import curses
+from curses import wrapper
 
-numbers = [1,2,3]
+def main(stdscr):
+    stdscr.clear()
+    stdscr.addstr("Hello world!")
+    stdscr.refresh()
+    stdscr.getkey()
 
-def packing(*numbers):
-    for number in numbers:
-        print(number)
-        print()
-packing(*numbers)
+wrapper(main)
