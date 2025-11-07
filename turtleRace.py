@@ -39,7 +39,7 @@ def create_turtles(colors):
         racer.shape('turtle')
         racer.left(90)
         racer.penup()
-        racer.setpos(-WIDTH/2 + (i+1) * spacingx, -HEIGHT//2 + 20)
+        racer.setpos(-WIDTH/2 + (i+1) * spacingx, -HEIGHT//2 + 20) #turtle screen은 중심을 (0,0)으로 함. (pygame과 상이)
         racer.pendown()
         turtles.append(racer)
     return turtles
