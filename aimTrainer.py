@@ -67,11 +67,11 @@ def draw_top_bar(win, elapsed_time, targets_pressed, misses):
     time_label = LABEL_FONT.render(f"Time: {format_time(elapsed_time)}", 1, "black")
 
     speed = round(targets_pressed/elapsed_time, 1)
-    speed_label = LABEL_FONT.render(f"Speed: {speed} t/s", 1, "black")
+    speed_label = LABEL_FONT.render(f"Speed: {speed} t/s", 1, "black", )
 
     hits_label = LABEL_FONT.render(f"Hits: {targets_pressed}", 1, "black")
 
-    lives_label = LABEL_FONT.render(f"Lives: {LIVES - misses}", 1 , "black")
+    lives_label = LABEL_FONT.render(f"Lives: {LIVES - misses}", 1, "black")
 
     win.blit(time_label, (5,5))
     win.blit(speed_label, (200,5))
@@ -87,7 +87,7 @@ def end_screen(win, elapsed_time, targets_pressed, clicks):
     hits_label = LABEL_FONT.render(f"Hits: {targets_pressed}", 1, "white")
 
     accuracy = round(targets_pressed / clicks * 100, 1)
-    accuracy_label = LABEL_FONT.render(f"Accuracy: {accuracy}%", 1, "white") # 1?
+    accuracy_label = LABEL_FONT.render(f"Accuracy: {accuracy}%", 1, "white")
     
     win.blit(time_label, (get_middle(time_label), 100))
     win.blit(speed_label, (get_middle(speed_label), 200))
@@ -115,7 +115,7 @@ def main():
     misses = 0
     start_time = time.time()
 
-    pygame.time.set_timer(TARGET_EVENT, TARGET_INCREMENT)
+    pygame.time.set_timer(TARGET_EVENT, TARGET_INCREMENT) #사용자지정 이벤트를 두번째 인자의 시간마다 나타나게 할수있음
 
     while run:
         clock.tick(60)
@@ -142,7 +142,7 @@ def main():
             if target.size <= 0:
                 targets.remove(target)
                 misses += 1
-            if click and target.collide(*mouse_pos): #why??
+            if click and target.collide(*mouse_pos):
                 targets.remove(target)
                 targets_pressed += 1
         if misses >= LIVES:
